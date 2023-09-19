@@ -1,19 +1,27 @@
 import {menuArray} from '/data.js'
 
 const menuDiv = document.getElementById('menu-div')
-const orderItemList = document.getElementById('order-item-list')
-const orderDiv = document.getElementById('order-div')
-const totalPriceSpan = document.getElementById('total-price-span')
-const orderArray = []
+let orderArray = []
 let orderDivIsVisible = false;
 
 document.addEventListener('click', e => {
-    e.target.dataset.add && buildOrder(menuArray.filter(item => item.id == e.target.id)[0])
-    orderItemList.innerHTML = getOrderListHtml(orderArray)
-    totalPriceSpan.innerHTML = `\$${getTotalPriceHtml(orderArray)}`
-    if (!orderDivIsVisible) {
-        orderDiv.classList.toggle('hidden')
-        orderDivIsVisible = true
+    if (e.target.dataset.add) {
+        buildOrder(menuArray.filter(item => item.id == e.target.dataset.add)[0])
+        renderOrderHtml()
+        if (!orderDivIsVisible) {
+            changeOrderDivVisibility()
+        }
+    }
+})
+
+document.addEventListener('click', e => {
+    if (e.target.dataset.remove) {
+        removeOrderItem(e.target.dataset.remove)
+        renderOrderHtml()
+        if (orderArray.length === 0) {
+            orderDiv.classList.toggle('hidden')
+            orderDivIsVisible = true
+        }
     }
 })
 
@@ -55,7 +63,28 @@ const getOrderListHtml = arr => arr.map(subArr => `
     </li>`
 ).join('')
 
-const getTotalPriceHtml = arr => arr.map(item => item[1] * item[2])
-    .reduce((total, currentItem) => total + currentItem)
+const getTotalPriceHtml = arr => {
+    if (orderArray.length === 0) {
+        return 0
+    } else {
+        return arr.map(item => item[1] * item[2]).reduce((total, currentItem) => total + currentItem)
+    }
+}
+    
+const removeOrderItem = menuItem => {
+    let removedItem = orderArray.filter(item => item[0] == menuItem)[0]
+    removedItem[2]--
+    orderArray = orderArray.filter(item => item[2] > 0)
+}
+
+const renderOrderHtml = () => {
+    document.getElementById('order-item-list').innerHTML = getOrderListHtml(orderArray)
+    document.getElementById('total-price-span').innerHTML = `\$${getTotalPriceHtml(orderArray)}`
+}
+
+const changeOrderDivVisibility = () => {
+    document.getElementById('order-div').classList.toggle('hidden')
+    orderDivIsVisible = !orderDivIsVisible
+}
 
 menuDiv.innerHTML = renderMenu(menuArray)
