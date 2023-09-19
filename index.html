@@ -29,17 +29,19 @@
                 <p class="menu-order-item">Total Price:
                     <span id="total-price-span" class="price-span"></span>
                 </p>
-                <button id="submit-order-btn" class="submit-order-btn">Complete order</button>
+                <button id="submit-order-btn" class="submit-order-btn" data-toggle-visibility="payment-div">Complete order</button>
             </div>
-            <div id="payment-div" class="payment-div hidden">
+            <div id="payment-div" class="popup-div payment-div hidden">
                 <h2 class="payment-h2">Enter card details</h2>
-                <input class="payment-input" placeholder="Enter your name" type="text" required>
-                <input class="payment-input" placeholder="Enter card number" type="text" id="ccn" inputmode="numeric" pattern="[0-9\s]{13,19}" title="Please enter a valid credit card number" required>
-                <input class="payment-input" placeholder="Enter CVV" type="text" id="cvv" name="cvv" inputmode="numeric" pattern="[0-9]{3,4}" title="Please enter a valid CVV code" required>
-                <button class="payment-btn">Pay</button>
-                <p class="close-btn">X</p>
+                <form id="payment-form">
+                    <input class="payment-input" placeholder="Enter your name" type="text" required>
+                    <input class="payment-input" placeholder="Enter card number" type="text" id="ccn" inputmode="numeric" pattern="[0-9\s]{13,19}" title="Please enter a valid credit card number" required>
+                    <input class="payment-input" placeholder="Enter CVV" type="text" id="cvv" name="cvv" inputmode="numeric" pattern="[0-9]{3,4}" title="Please enter a valid CVV code" required>
+                    <button id="payment-btn" class="payment-btn" type="submit">Pay</button>
+                </form>
+                <p class="close-btn" data-toggle-visibility="payment-div">X</p>
             </div>
-            <div id="rate-div" class="rate-div hidden">
+            <div id="rate-div" class="popup-div hidden">
                 <h2>Please rate your ordering experience!</h2>
                 <i class="fa-solid fa-star" id="1-star"></i>
                 <i class="fa-solid fa-star" id="2-star"></i>
