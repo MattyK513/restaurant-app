@@ -75,7 +75,7 @@ main {
     float: right;
 }
 
-.payment-div {
+.popup-div {
     position: fixed;
     top: 292px;
     left: 38px;
