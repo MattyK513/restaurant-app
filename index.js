@@ -1,8 +1,9 @@
 import {menuArray} from '/data.js'
 
 const menuDiv = document.getElementById('menu-div')
+const paymentForm = document.getElementById('payment-form')
 let orderArray = []
-let orderDivIsVisible = false;
+let orderDivIsVisible = false
 
 document.addEventListener('click', e => {
     if (e.target.dataset.add) {
@@ -19,10 +20,23 @@ document.addEventListener('click', e => {
         removeOrderItem(e.target.dataset.remove)
         renderOrderHtml()
         if (orderArray.length === 0) {
-            orderDiv.classList.toggle('hidden')
-            orderDivIsVisible = true
+            changeOrderDivVisibility()
         }
     }
+})
+
+document.addEventListener('click', e => {
+    if (e.target.dataset.toggleVisibility) {
+        changePaymentDivVisibility(e.target.id)
+        
+    }
+})
+
+paymentForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    changePaymentDivVisibility()
+    document.getElementById('rate-div').classList.toggle('hidden')
+    changeOrderDivVisibility()
 })
 
 const renderMenu = arr => arr.map(item => {
@@ -86,5 +100,15 @@ const changeOrderDivVisibility = () => {
     document.getElementById('order-div').classList.toggle('hidden')
     orderDivIsVisible = !orderDivIsVisible
 }
+
+const changePaymentDivVisibility = buttonClicked => {
+    const paymentDiv = document.getElementById('payment-div')
+    if (buttonClicked === 'submit-order-btn') {
+        if (paymentDiv.classList.contains('hidden'))
+        paymentDiv.classList.toggle('hidden')
+    } else {
+        paymentDiv.classList.toggle('hidden')
+    }
+} 
 
 menuDiv.innerHTML = renderMenu(menuArray)
