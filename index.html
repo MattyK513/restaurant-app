@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurant Ordering App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="index.css">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" /
+    </head>
+    <body>
+        <header>
+            <h1 class="title-h1">Jimmy's Diner</h1>
+            <p class="slogan-p">The best burgers and pizzas in town.</p>
+        </header>
+        <main>
+            <div id="menu-div" class="menu-div">
+            </div>
+            <div id="order-div" class="order-div hidden">
+                <h2 class="menu-item-name">Your order</h2>
+                <ul id="order-item-list" class="order-item-list"    >
+                </ul>
+                <p class="menu-order-item">Total Price:
+                    <span id="total-price-span" class="price-span"></span>
+                </p>
+                <button id="submit-order-btn" class="submit-order-btn">Complete order</button>
+            </div>
+            <div id="payment-div" class="payment-div hidden">
+                <h2 class="payment-h2">Enter card details</h2>
+                <input class="payment-input" placeholder="Enter your name" type="text" required>
+                <input class="payment-input" placeholder="Enter card number" type="text" id="ccn" inputmode="numeric" pattern="[0-9\s]{13,19}" title="Please enter a valid credit card number" required>
+                <input class="payment-input" placeholder="Enter CVV" type="text" id="cvv" name="cvv" inputmode="numeric" pattern="[0-9]{3,4}" title="Please enter a valid CVV code" required>
+                <button class="payment-btn">Pay</button>
+                <p class="close-btn">X</p>
+            </div>
+            <div id="rate-div" class="rate-div hidden">
+                <h2>Please rate your ordering experience!</h2>
+                <i class="fa-solid fa-star" id="1-star"></i>
+                <i class="fa-solid fa-star" id="2-star"></i>
+                <i class="fa-solid fa-star" id="3-star"></i>
+                <i class="fa-solid fa-star" id="4-star"></i>
+                <i class="fa-solid fa-star" id="5-star"></i>
+            <div>
+        </main>
+	<script src="index.js" type="module"></script>
+    </body>
+</html>
