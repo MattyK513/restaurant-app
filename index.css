@@ -77,22 +77,44 @@ main {
 
 .popup-div {
     position: fixed;
-    top: 292px;
+    top: 2.92px;
     left: 38px;
     background: white;
     width: 524px;
+    text-align: center;
+    box-shadow: 0 0 255px rgba(0,0,0,0.5);
+}
+
+.payment-input {
+    width: 90%;
+    font-size: 20px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    margin: 12px 0;
 }
 
 .close-btn {
     position: absolute;
     color: red;
     top: 0;
-    right: 0;
+    right: 5px;
     font-size: 25px;
+    margin: 0;
 }
 
 .close-btn:hover {
     font-weight: bold;
+}
+
+.order-confirmation-div {
+    margin: 0 auto;
+    width: 504px;
+    text-align: center;
+    background-color: #ECFDF5;
+    color: #065F46;
+    font-size: 32px;
+    padding: 12px 0;
+    border-radius: 3px;
 }
 
 /* Typography */
@@ -149,6 +171,11 @@ main {
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
+.payment-h2 {
+    font-size: 24px;
+    margin: 40px 0;
+}
+
 /* Buttons, etc */
 .add-to-cart-btn {
     border-radius: 50%;
@@ -162,17 +189,27 @@ main {
     color: #3C3C3C;
 }
 
-.submit-order-btn {
+.green-btn {
     border: none;
     border-radius: 3px;
     color: white;
     background-color: #16D899;
+    font-weight: bold;
+}
+
+.submit-order-btn {
     width: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    font-weight: bold;
-    padding: 20px;
     margin-bottom: 50px;
+    padding: 20px;
+}
+
+.payment-btn {
+    width: 90%;
+    padding: 20px;
+    font-size: 20px;
+    margin: 30px 0;
 }
 
 /* Utility */
