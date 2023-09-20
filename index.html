@@ -22,14 +22,19 @@
         <main>
             <div id="menu-div" class="menu-div">
             </div>
-            <div id="order-div" class="order-div hidden">
-                <h2 class="menu-item-name">Your order</h2>
-                <ul id="order-item-list" class="order-item-list"    >
-                </ul>
-                <p class="menu-order-item">Total Price:
-                    <span id="total-price-span" class="price-span"></span>
-                </p>
-                <button id="submit-order-btn" class="submit-order-btn green-btn" data-toggle-visibility="payment-div">Complete order</button>
+            <div class="order-div-container">
+                <div id="order-div" class="order-div hidden">
+                    <h2 class="menu-item-name order-heading">Your order</h2>
+                    <ul id="order-item-list" class="order-item-list">
+                    </ul>
+                    <p class="menu-order-item">Total Price:
+                        <span id="total-price-span" class="price-span"></span>
+                    </p>
+                    <button id="submit-order-btn" class="submit-order-btn green-btn" data-toggle-visibility="payment-div">Complete order</button>
+                </div>
+                <div class="order-confirmation-div hidden" id="order-confirmation-div">
+                    <p id="confirmation-text"></p>
+                </div>
             </div>
             <div id="payment-div" class="popup-div payment-div hidden">
                 <h2 class="payment-h2">Enter card details</h2>
@@ -50,9 +55,6 @@
                 <i class="fa-solid fa-star" id="5-star"></i>
                 <p class="close-btn" data-toggle-visibility="rate-div">X</p>
             <div> -->
-            <div class="order-confirmation-div hidden" id="order-confirmation-div">
-                <p id="confirmation-text"></p>
-            </div>
         </main>
 	<script src="index.js" type="module"></script>
     </body>
