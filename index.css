@@ -55,6 +55,10 @@ main {
     margin: 5px 0 9px;
 }
 
+.order-div-container {
+    min-height: 315px
+}
+
 .order-div {
     width: 508px;
     margin: 0 auto;
@@ -77,8 +81,8 @@ main {
 
 .popup-div {
     position: fixed;
-    top: 2.92px;
-    left: 38px;
+    top: 20vh;
+    left: calc((100% - 524px)/2);
     background: white;
     width: 524px;
     text-align: center;
@@ -107,7 +111,7 @@ main {
 }
 
 .order-confirmation-div {
-    margin: 0 auto;
+    margin: 35px auto;
     width: 504px;
     text-align: center;
     background-color: #ECFDF5;
@@ -217,6 +221,10 @@ main {
     display: none
 }
 
-.remove-btn:hover, button {
+.remove-btn:hover, button:hover, .close-btn:hover {
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
 }
