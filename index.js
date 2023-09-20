@@ -2,11 +2,13 @@ import {menuArray} from '/data.js'
 
 const menuDiv = document.getElementById('menu-div')
 const paymentForm = document.getElementById('payment-form')
+const orderConfirmation = document.getElementById('order-confirmation-div')
 let orderArray = []
 let orderDivIsVisible = false
 
 document.addEventListener('click', e => {
     if (e.target.dataset.add) {
+        orderConfirmation.classList = "order-confirmation-div hidden"
         buildOrder(menuArray.filter(item => item.id == e.target.dataset.add)[0])
         renderOrderHtml()
         if (!orderDivIsVisible) {
@@ -35,9 +37,11 @@ paymentForm.addEventListener('submit', (e) => {
     e.preventDefault()
     changePaymentDivVisibility()
     changeOrderDivVisibility()
-    document.getElementById('order-confirmation-div').classList.toggle('hidden')
+    orderArray = []
+    orderConfirmation.classList.toggle('hidden')
     document.getElementById('confirmation-text').textContent = `
     Thanks, ${document.getElementById('name-input').value.split(" ")[0]}! Your order is on its way!`
+    paymentForm.reset()
 })
 
 const renderMenu = arr => arr.map(item => {
