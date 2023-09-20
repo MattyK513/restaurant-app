@@ -28,15 +28,16 @@ document.addEventListener('click', e => {
 document.addEventListener('click', e => {
     if (e.target.dataset.toggleVisibility) {
         changePaymentDivVisibility(e.target.id)
-        
     }
 })
 
 paymentForm.addEventListener('submit', (e) => {
     e.preventDefault()
     changePaymentDivVisibility()
-    document.getElementById('rate-div').classList.toggle('hidden')
     changeOrderDivVisibility()
+    document.getElementById('order-confirmation-div').classList.toggle('hidden')
+    document.getElementById('confirmation-text').textContent = `
+    Thanks, ${document.getElementById('name-input').value.split(" ")[0]}! Your order is on its way!`
 })
 
 const renderMenu = arr => arr.map(item => {
